@@ -17,11 +17,11 @@ Step Two: 'cd' into the cloned directory.
 ```
 cd fend-neigh-app
 ```
-Step Three: Install dependencies. Use yarn for a trouble free experience. NPM will work as well.
+Step Three: Install all dependencies for project using Yarn. NPM will work as well, just use ```npm install``` instead
 
 ```
 
-yarn install
+yarn
 ```
 
 Step Four: Run application.
