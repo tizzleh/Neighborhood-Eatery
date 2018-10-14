@@ -56,7 +56,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Built with
 
- *[Create React App] (https://github.com/facebook/create-react-app)
- *[React] (https://github.com/facebook/create-react-app)
- *[Foursquare] (https://developer.foursquare.com/docs/api/)
- *[Google Maps API] (https://developers.google.com/maps)
+ * [Create React App] (https://github.com/facebook/create-react-app)
+ * [React] (https://github.com/facebook/create-react-app)
+ * [Foursquare] (https://developer.foursquare.com/docs/api/)
+ * [Google Maps API] (https://developers.google.com/maps)
