@@ -7,9 +7,8 @@
 
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
-console.log("hello from Service worker, it only works in production");
-const isLocalhost = Boolean(
 
+const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
     window.location.hostname === '[::1]' ||
@@ -20,7 +19,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if (process.env.NODE_ENV === 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {

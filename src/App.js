@@ -143,7 +143,7 @@ class App extends Component {
           that.state.info.open(that.state.map, that.state.listedMarkers[i])
 
           let k = e.target.style.color;
-          e.target.style.color = 'red'; // eslint-disable-next-line no-use-before-define
+          e.target.style.color = 'aliceBlue'; // eslint-disable-next-line no-use-before-define
           setTimeout(function() {
             e.target.style.color = k;
           }, 1500);
