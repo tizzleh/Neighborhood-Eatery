@@ -6,9 +6,9 @@ class Search extends Component {
     super();
 
     this.state = {
-      info: '',
-      markers: [],
-      query: ''
+        info: '',
+        markers: [],
+        query: ''
     };
     this.refreshList = this.refreshList.bind(this)
   }
@@ -18,8 +18,8 @@ class Search extends Component {
     this.refreshList()
   }
 
-  refreshList() {
-    // this.setState({markers: []});
+  refreshList(){
+  // this.setState({markers: []});
     this.setState({markers: this.props.listedMarker});
   }
 
@@ -28,7 +28,7 @@ class Search extends Component {
     const markers = this.props.listedMarker;
     const newMarkers = [];
 
-    markers.forEach(function(marker) {
+    markers.forEach(function (marker) {
       if (marker.title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
         marker.setVisible(true);
         newMarkers.push(marker);
@@ -40,6 +40,7 @@ class Search extends Component {
     this.setState({markers: newMarkers});
   }
 
+
   openMarker(marker) {
     // console.log(marker);
     this.props.openInfo(marker);
@@ -47,21 +48,32 @@ class Search extends Component {
 
   render() {
 
-    return (<div className="app">
+  return (
+    <div className="app">
       <div className="search">
         <div className="form" role="form">
-          <input type="text" aria-labelledby="filter" placeholder="Search..." className="input" role="search" onChange={this.searchVenue}/>
+          <input type="text"
+            aria-labelledby="filter" placeholder="Search..."
+            className="input" role="search"
+            onChange={this.searchVenue}/>
         </div>
         <ul>
           {
-            this.state.markers && this.state.markers.length && this.state.markers.map((marker, i) => <li key={i}>
-              <a onKeyPress={this.props.infowindow} onClick={this.props.infowindow} tabIndex="0" role="button">{marker.title}
+          this.state.markers &&
+          this.state.markers.length &&
+          this.state.markers.map((marker, i) =>
+            <li
+              key={i}>
+              <a href={this.props.infowindow} onKeyPress={this.props.infowindow}
+                onClick={this.props.infowindow}
+                tabIndex="0" role="button">{marker.title}
               </a>
-            </li>)
-          }
+            </li>
+          )}
         </ul>
       </div>
-    </div>);
+    </div>
+    );
   }
 }
 

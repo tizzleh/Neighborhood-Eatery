@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios'
-// import Dropdown from './components/Dropdown'
 import Map from './components/Map'
 import Search from "./components/Search";
 
@@ -12,8 +11,8 @@ class App extends Component {
 
     this.state = {
       center: {
-        lat: 35.35,
-        lng: -106.4324
+        lat: 35.0844,
+        lng: -106.6504
       },
       zoom: 13,
       map: '',
@@ -38,7 +37,7 @@ class App extends Component {
   }
 
   renderMap = () => {
-    loadMap("https://maps.googleapis.com/maps/api/js?key=AIzaSyCIgum1zb5V0e5Z6em7zkzPhbM7R_E2eB0&callback=initMap")
+    loadMap("https://maps.googleapis.com/maps/api/js?key=AIzaSyAdlFJbHfXSdxy03hESWwqCu5z5xzEfCTw&callback=initMap")
     window.initMap = this.initMap
     // window.initAutocomplete = this.initAutocomplete
   }
@@ -78,7 +77,7 @@ class App extends Component {
 
     this.state.venues.forEach(fsVenue => {
 
-      var contentString = `${fsVenue.venue.name} , ${fsVenue.venue.location.address}`
+      let contentString = `${fsVenue.venue.name} , ${fsVenue.venue.location.address}`
 
       const markerLocation = {
         lat: fsVenue.venue.location.lat,
@@ -90,7 +89,7 @@ class App extends Component {
         position: markerLocation,
         map: map,
         title: fsVenue.venue.name,
-        icon: iconBase + 'coffee.png'
+        icon: iconBase + 'dining.png'
       });
 
       marker.addListener('click', function() {
@@ -118,15 +117,17 @@ class App extends Component {
     });
   }
 
-  //  changeCenter = (LatLng) => {
-  //   this.setState({center: LatLng})
-  // }
+  pause = (e, k) => {
+    setTimeout(function() {
+      e.target.style.color = k;
+    }, 1500);
+  }
 
   onclickLocation = () => {
     let that = this
 
     document.querySelector('.search').addEventListener('click', function(e) {
-      for (var i = 0; i < that.state.listedMarkers.length; i++) {
+      for (let i = 0; i < that.state.listedMarkers.length; i++) {
         if (that.state.listedMarkers[i].title.toLowerCase() === e.target.innerText.toLowerCase()) {
           let newlocation = {
             lat: that.state.venues[i].venue.location.lat,
@@ -137,25 +138,24 @@ class App extends Component {
           let newMarkerCenter2 = new window.google.maps.LatLng(newlocation);
           that.state.map.setCenter(newMarkerCenter2)
 
-          var contentStringSearch = that.state.venues[i].venue.location.address + ', \n ' + that.state.venues[i].venue.name
+          let contentStringSearch = that.state.venues[i].venue.location.address + ', \n ' + that.state.venues[i].venue.name
           that.state.info.setContent(contentStringSearch)
           that.state.info.open(that.state.map, that.state.listedMarkers[i])
 
-          var k = e.target.style.color;
-          e.target.style.color = 'red';
+          let k = e.target.style.color;
+          e.target.style.color = 'red'; // eslint-disable-next-line no-use-before-define
           setTimeout(function() {
             e.target.style.color = k;
           }, 1500);
           // console.log("cont", contentStringSearch)
-          let cheosenOne = that.state.listedMarkers[i]
-          cheosenOne.setAnimation(window.google.maps.Animation.BOUNCE);
+          let selected = that.state.listedMarkers[i]
+          selected.setAnimation(window.google.maps.Animation.BOUNCE);
+          // eslint-disable-next-line no-use-before-define
           setTimeout(function() {
-            cheosenOne.setAnimation(null);
+            selected.setAnimation(null);
           }, 1500);
-          //console.log("state", that.state)
         }
       }
-      // alert(e.target.innerText.toLowerCase())
     })
   }
 
@@ -165,10 +165,10 @@ class App extends Component {
     const mapClass = document.querySelector('#map');
 
     if (navbar.style.display === 'none') {
-      navbar.style.display =//to hide side bar and to make map take the whole screen
-      'block';
+      navbar.style.display = 'block';
     } else {
-      (navbar.style.display = 'none', mapClass.style.width = '100%');
+      navbar.style.display = 'none'
+      mapClass.style.width = '100%'
     }
   }
 
@@ -185,7 +185,7 @@ class App extends Component {
           <div className="icon-bar"></div>
         </button>
 
-        <h3>Google Maps with
+        <h3>Google Maps with&nbsp;
           <a href="https://foursquare.com/developers/apps">Foursquare</a>
         </h3>
         <h3>

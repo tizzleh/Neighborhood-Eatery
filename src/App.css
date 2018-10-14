@@ -1,0 +1,74 @@
+#map {
+  height:100vh;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 10px 25px 0 10px;
+  text-align: left;
+
+}
+.icon-bar {
+      width: 50px;
+      height: 5px;
+      background-color: darkgrey;
+      margin: 6px 0;
+    }
+
+
+header {
+  display: flex;
+  margin: 0;
+  height: 50px;
+  font: "black";
+  font-size: 1em;
+  text-align: center;
+  background-color: #607ae0;
+  padding: 0.5cm;
+}
+
+h3 {
+  text-align: center;
+}
+
+#map {
+  margin: 0;
+  justify-content: flex-end;
+  width: 70%;
+  height: 100vh;
+}
+
+#container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.side {
+  width: 30%;
+  background-color: grey;
+  height: 100vh;
+}
+
+.input {
+  margin: 20px 10px 10px 10px;
+  font-size: 1em;
+  border: solid purple;
+}
+
+
+@media screen and (max-width: 360px) {
+  header, .side {
+    font-size: 0.6em;
+  }
+
+.icon-bar {
+      width: 35px;
+      height: 5px;
+    }
+
+}
