@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/fend-neigh-app/precache-manifest.088066a90ce81bbc57001335c9e29818.js"
+  "/fend-neigh-app/precache-manifest.bade572ef08186626ee28b21fe5d1bd5.js"
 );
 
 workbox.clientsClaim();
