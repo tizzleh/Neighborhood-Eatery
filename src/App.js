@@ -29,8 +29,12 @@ class App extends Component {
     this.onclickLocation = this.onclickLocation.bind(this)
   }
 
+  gm_authFailure() {
+    window.alert("Google Maps error!")
+  }
   //do not do initMap in this component as we won't have venues then
   componentDidMount() {
+    window.gm_authFailure = this.gm_authFailure;
     // this.updateQuery()
     this.getVenues()
     this.onclickLocation()
@@ -60,7 +64,8 @@ class App extends Component {
       }, this.renderMap())
       //response.data.response.groups[0].items
     }).catch(error => {
-      console.log("ERROR! " + error)
+      window.alert(`Error: ${error}`)
+      // console.log("ERROR! " + error)
     })
   }
 
@@ -179,7 +184,7 @@ class App extends Component {
     // console.log("venues", this.state.venues)
     return (<div className='app'>
       <header>
-        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={this.toggleNavBar}>
+        <button aria-label="hide-sidebar" type="button" className="navbar-toggle collapsed" data-toggle="collapse" onClick={this.toggleNavBar}>
           <div className="icon-bar"></div>
           <div className="icon-bar"></div>
           <div className="icon-bar"></div>

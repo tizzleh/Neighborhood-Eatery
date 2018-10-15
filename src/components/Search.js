@@ -52,10 +52,12 @@ class Search extends Component {
     <div className="app">
       <div className="search">
         <div className="form" role="form">
-          <input type="text"
-            aria-labelledby="filter" placeholder="Search..."
+          <label htmlFor="search">Search:</label>
+          <input id="search" type="text"
+            aria-label="search" placeholder="Search..."
             className="input" role="search"
             onChange={this.searchVenue}/>
+            <label htmlFor="search"></label>
         </div>
         <ul>
           {

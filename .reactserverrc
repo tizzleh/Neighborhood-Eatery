@@ -1,0 +1,26 @@
+{
+  "routesFile": "./routes.json",
+  "host": "localhost",
+  "port": 3000,
+  "jsPort": 3001,
+  "hot": false,
+  "minify": false,
+  "longTermCaching": true,
+  "logLevel": "debug",
+  "env": {
+    "development": {
+       "hot": true,
+       "longTermCaching": false
+    },
+    "beta": {
+       "jsUrl": "/assets/"
+    },
+    "production": {
+       "compileOnStartup": false,
+       "jsUrl": "/assets/",
+       "logLevel": "error",
+       "minify": true
+    }
+  },
+  "webpackConfig" : "./webpack.config.js"
+}
