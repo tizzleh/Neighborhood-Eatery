@@ -36,7 +36,8 @@ class App extends Component {
   componentDidMount() {
     window.gm_authFailure = this.gm_authFailure;
     // this.updateQuery()
-    this.getVenues()
+    // this.getVenues()
+    this.stateSet()
     this.onclickLocation()
   }
 
@@ -47,7 +48,26 @@ class App extends Component {
   }
 
   //to get venues from foursquare
-  getVenues = () => {
+  getVenues = async () => {
+    try {
+      return await
+      axios.get('https://api.foursquare.com/v2/venues/explore?client_id=YCMGPBOPZCPOG4QYVXZ4ETGY5TLVNO34BGYAZ1NNKA3T44KS&client_secret=EKIC4ZUG3DJJGATRLZA2WO1W3X5L204BHM0XG2RE5IGP0GK5&query=food&near=Albuquerque&v=20180903')
+    } catch (error) {
+      window.alert(`${error}, can't connect to foursquare`)
+    }
+  }
+
+  stateSet = async () => {
+    const get = await this.getVenues()
+    if (get){
+    this.setState({
+      venues: get.data.response.groups[0].items,
+    }, this.renderMap())
+      // window.alert(get)
+      // console.log(get.data.response.groups[0].items)
+    }
+  }
+  getVenuesOLD = () => {
     const endPoint = "https://api.foursquare.com/v2/venues/explore?"
     const parameters = {
       client_id: this.state.client_id,
@@ -64,7 +84,7 @@ class App extends Component {
       }, this.renderMap())
       //response.data.response.groups[0].items
     }).catch(error => {
-      window.alert(`Error: ${error}`)
+      window.alert(`${error}, can't connect to foursquare`)
       // console.log("ERROR! " + error)
     })
   }
