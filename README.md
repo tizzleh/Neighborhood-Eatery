@@ -1,13 +1,15 @@
 # fend-neigh-app
 
-This project is part of a Udacity course. The task was to implement Google Maps, third-party API's and react.
+This project is part of a Udacity course. The task was to implement Google Maps, third-party API's and react. The service worker may take a few seconds to cache the resources. The console will state when the service worker is ready and has cached content for offline use.
 
 ## Getting Started
-
+You can visit page by simply visiting the link: [Neighborhood App] (https://tizzleh.github.io/fend-neigh-app)
+Or you can install locally, please follow steps below.
 
 ### Installing
 
 Step One: Clone the repository to your local machine.
+
 
 ```
 git clone https://github.com/tizzleh/fend-neigh-app.git
