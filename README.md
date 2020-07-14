@@ -1,4 +1,4 @@
-# fend-neigh-app
+# Neighborhood Restaurants
 
 This project is part of a Udacity course. The task was to implement Google Maps, third-party API's and react. The service worker may take a few seconds to cache the resources. The console will state when the service worker is ready and has cached content for offline use.
 
